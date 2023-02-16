@@ -1,0 +1,48 @@
+<div class="w-[80vw] pb-10 p-4 border mx-auto mt-5 shadow-lg border-black">
+    <h2 class="text-gray-500 text-4xl text-center">My Products Page</h2>
+    <div class="container flex">
+        <div class="left w-[45%] mt-10 gap-2 flex flex-col">
+            <h3 class="text-2xl text-green-600 mb-4 self-center">Add Products</h3>
+            <label>Product ID</label>
+            <input #id type="text" class="focus:outline-none border-2 rounded-md px-2 py-1 focus:border-green-700 focus:border-2 mb-3" [(ngModel)]="uid">
+            <label>Product Name</label>
+            <input #name type="text" class="focus:outline-none border-2 rounded-md px-2 py-1 focus:border-green-700 focus:border-2 mb-3 " [(ngModel)]="uname">
+            <label>Product Price</label>
+            <input #price type="number" class="focus:outline-none border-2 rounded-md px-2 py-1  mb-3 focus:border-green-700 focus:border-2" [(ngModel)]="uprice">
+            <div class="mybuttons flex gap-2">
+                <button class="btn btn-success" (click)="addProduct(id.value,name.value,price.value)">Add Product</button>
+                <button class="btn btn-error" (click) ="saveProduct()" >Save Products</button>
+                <button class="btn btn-warning">Fetch Products</button>
+            </div>
+        </div>
+        <div class="right left  mt-10 gap-2 flex flex-col">
+            <h3 class="text-2xl text-green-600 mb-4 self-center">Add Products</h3>
+            <div class="overflow-visible">
+                <table class="table overflow-hidden table-zebra ml-10 w-full">
+                  <!-- head -->
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Price</th>
+                      <th>Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- row 1 -->
+                    <tr *ngFor="let product of products; index as i">
+                      <th>{{i+1}}</th>
+                      <td>{{product.id}}</td>
+                      <td>{{product.name}} </td>
+                      <td>{{product.price}}</td>
+                      <td><button class="border border-red-600 bg-red-300 px-2 py-1 rounded-lg active:hover:scale-125 transition ease-in hover:scale-110 duration-200" (click)="onRemove(i)">Remove</button></td>
+                    </tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="h-screen"></div> -->
