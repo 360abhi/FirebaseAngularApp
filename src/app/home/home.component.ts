@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../Services/firebase.service';
 
 
@@ -9,28 +9,32 @@ import { FirebaseService } from '../Services/firebase.service';
   providers: [FirebaseService]
  
 })
-export class HomeComponent {
+export class HomeComponent  implements OnInit{
   constructor(public _firebase:FirebaseService) {}
+
+  ngOnInit(): void {
+      this.onFetchProducts();
+  }
 
   uname = '';
   uid ='';
   uprice  = 0;
   products = [
-    {
-      id: 'p1',
-      name: 'Mobile',
-      price: 5000,
-    },
-    {
-      id: 'p2',
-      name: 'TV',
-      price: 55000,
-    },
-    {
-      id: 'p3',
-      name: 'Flip Mobile',
-      price: 24000,
-    },
+    // {
+    //   id: 'p1',
+    //   name: 'Mobile',
+    //   price: 5000,
+    // },
+    // {
+    //   id: 'p2',
+    //   name: 'TV',
+    //   price: 55000,
+    // },
+    // {
+    //   id: 'p3',
+    //   name: 'Flip Mobile',
+    //   price: 24000,
+    // },
   ];
 
   addProduct(id, name, price): void {
@@ -53,6 +57,19 @@ export class HomeComponent {
   saveProduct(): void {
     this._firebase.saveProducts(this.products).subscribe(
       (response) => console.log(response),
+      (err) => console.log(err)
+    )
+  }
+
+  onFetchProducts(){
+    this._firebase.fetchProducts()
+    .subscribe(
+      (response) =>{
+        // console.log(response)
+        const data = JSON.stringify(response);
+        this.products = JSON.parse(data);
+      } 
+      ,
       (err) => console.log(err)
     )
   }

@@ -15,4 +15,8 @@ export class FirebaseService {
     return this.http.put(this.url,products)
   }
 
+  fetchProducts(){
+    return this.http.get(this.url);
+  }
+
 }

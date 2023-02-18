@@ -12,7 +12,7 @@
             <div class="mybuttons flex gap-2">
                 <button class="btn btn-success" (click)="addProduct(id.value,name.value,price.value)">Add Product</button>
                 <button class="btn btn-error" (click) ="saveProduct()" >Save Products</button>
-                <button class="btn btn-warning">Fetch Products</button>
+                <button class="btn btn-warning" (click)="onFetchProducts()">Fetch Products</button>
             </div>
         </div>
         <div class="right left  mt-10 gap-2 flex flex-col">
@@ -41,6 +41,10 @@
                     
                   </tbody>
                 </table>
+                <div>
+                
+
+                </div>
               </div>
         </div>
     </div>
