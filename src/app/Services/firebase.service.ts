@@ -12,11 +12,15 @@ export class FirebaseService {
   constructor(private http: HttpClient) { }
 
   saveProducts(products: any[])  {
-    return this.http.put(this.url,products)
+    return this.http.put(this.url,products);
   }
 
   fetchProducts(){
     return this.http.get(this.url);
+  }
+
+  fetchTitle() {
+    return this.http.get('https://datafetchingapp-default-rtdb.firebaseio.com/dataTitle.json');
   }
 
 }

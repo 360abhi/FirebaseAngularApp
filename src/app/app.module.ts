@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { FirebaseService } from './Services/firebase.service';
+import { CommonModule } from '@angular/common';
 import {  HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
