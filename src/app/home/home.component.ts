@@ -56,6 +56,7 @@ export class HomeComponent  implements OnInit{
 
   onRemove(index: number): void {
     this.products.splice(index,1);
+    this.saveProduct();
   }
 
   saveProduct(): void {
