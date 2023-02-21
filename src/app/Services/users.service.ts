@@ -15,4 +15,8 @@ export class UserService {
     saveProducts(users: user[]) {
         return this.http.post(this.url,users);
     }
+
+    fetchUsers() {
+      return this.http.get(this.url);
+    }
 }
