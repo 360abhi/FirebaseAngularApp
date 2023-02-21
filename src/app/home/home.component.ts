@@ -7,8 +7,10 @@ import { FirebaseService } from '../Services/firebase.service';
   styleUrls: ['./home.component.css'],
   providers: [FirebaseService],
 })
+
 export class HomeComponent implements OnInit {
-  constructor(public _firebase: FirebaseService) {}
+  constructor(public _firebase: FirebaseService){
+  }
 
   ngOnInit(): void {
     this.onFetchProducts();
@@ -17,6 +19,7 @@ export class HomeComponent implements OnInit {
   dataTitle = this._firebase.fetchTitle();
   fetching: boolean = false;
   products;
+
   // {
   //   id: 'p1',
   //   name: 'Mobile',
@@ -41,9 +44,6 @@ export class HomeComponent implements OnInit {
         price: price,
       };
       this.editmode = false;
-      this.id.nativeElement.value = '';
-      this.name.nativeElement.value = '';
-      this.price.nativeElement.value = '';
     } else {
       if (id.length > 0 && name.length > 0 && price > 0) {
         this.products.push({
@@ -53,6 +53,9 @@ export class HomeComponent implements OnInit {
         });
       }
     }
+    this.id.nativeElement.value = '';
+    this.name.nativeElement.value = '';
+    this.price.nativeElement.value = '';
     this.saveProduct();
   }
 

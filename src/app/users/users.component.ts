@@ -11,10 +11,12 @@ import { map } from 'rxjs';
 })
 
 export class UsersComponent implements OnInit {
+
   @ViewChild('userform') userForm: NgForm;
   users: user[] = [];
 
-  constructor(private _user: UserService) {}
+  constructor(private _user: UserService) {
+  }
 
   ngOnInit(): void {
       this.fetchUsers();
@@ -22,7 +24,7 @@ export class UsersComponent implements OnInit {
 
   onAddUser(userData: user) {
     // console.log(userData)
-    if (userData.name.length > 0 && userData.technology.length > 0) {
+    if (userData.name.length >0 && userData.technology.length > 0){
       this.users.push(userData);
       this._user.saveProducts(this.users).subscribe(
         (response) => console.log(response),
@@ -40,13 +42,12 @@ export class UsersComponent implements OnInit {
           userArray.push({
             userId:key, ...resData[key]
           })
-          console.log(userArray)
         }
       }
       return userArray;
     }))
     .subscribe(
-      response=>this.users = response
+      (response)=>this.users = response
     )
   }
 }
