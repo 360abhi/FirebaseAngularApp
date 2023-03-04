@@ -10,9 +10,9 @@
             <label>Product Price</label>
             <input #price type="number" class="focus:outline-none border-2 rounded-md px-2 py-1  mb-3 focus:border-green-700 focus:border-2" >
             <div class="mybuttons flex gap-2">
-                <button class="btn btn-success" (click)="addProduct(id.value,name.value,price.value)">{{editmode? 'Update Product' : 'Add Product'}}</button>
-                <button class="btn btn-error" (click) ="saveProduct()" >Save Products</button>
-                <button class="btn btn-warning" (click)="onFetchProducts()">Fetch Products</button>
+              <button class="btn btn-success" (click)="addProduct(id.value,name.value,price.value)">{{editmode? 'Update Product' : 'Add Product'}}</button>
+              <button class="btn btn-error" (click) ="saveProduct()" >Save Products</button>
+              <button class="btn btn-warning" (click)="onFetchProducts()">Fetch Products</button>
             </div>
         </div>
         <div class="right left  mt-10 gap-2 flex flex-col">
